@@ -1,12 +1,12 @@
 const { useState, useEffect } = require("react")
 
-const ListPost = () => {
+const ListPosts = () => {
     const [posts, setPosts] = useState([]);
 
-    useEffect(()=> {
+    useEffect(() => {
         async function getPosts() {
             const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-            const posts = response.json();
+            const posts = await response.json();
             setPosts(posts);
         }
         getPosts();
@@ -15,9 +15,11 @@ const ListPost = () => {
 
     return (
         <div className="posts">
-            {posts.map((item) => {
-                <div className="post">{item}</div>
+            {posts.map((item, index) => {
+                return <div className="post" key={index}>{item.title}</div>
             })}
         </div>
     )
 }
+
+export default ListPosts;
