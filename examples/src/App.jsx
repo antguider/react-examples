@@ -2,6 +2,7 @@ import './App.css';
 import ListPosts from './component/api-post/ApiPost';
 import Counter from './component/counter/Counter';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import SearchList from './component/search-list/SearchList';
 
 const App = () => {
 
@@ -25,6 +26,10 @@ const App = () => {
     {
       path: '/posts',
       element: <ListPosts />
+    },
+    {
+      path: '/search',
+      element: <SearchList />
     }
   ]);
 
